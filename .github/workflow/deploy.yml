@@ -1,0 +1,55 @@
+name: Deploy Vite + React App
+
+on:
+  push:
+    branches:
+      - main  # Replace with your branch name
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22' # Match your Node.js version
+
+      - name: Change to project directory
+        run: cd MyChatBot
+
+      - name: Install dependencies
+        working-directory: ./MyChatBot
+        run: npm install
+
+      - name: Build project
+        working-directory: ./MyChatBot
+        run: npm run build
+
+      - name: Upload production-ready build files
+        uses: actions/upload-artifact@v3
+        with:
+          name: production-files
+          path: ./MyChatBot/dist
+
+  deploy:
+    name: Deploy
+    needs: build  # Ensure this job waits for the 'build' job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: production-files
+          path: ./dist
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
