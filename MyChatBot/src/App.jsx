@@ -78,13 +78,13 @@ const App = () => {
             className="border border-red-400 text-red-700 px-4 mt-2 rounded relative bg-transparent"
             role="alert"
           >
-            <strong className="font-bold">BETA</strong>
+            <strong className="font-bold">ALPHA</strong>
           </div>
         </main>
 
         {/* Chat Section */}
         <div className="fixed bottom-0 left-0 w-full bg-black py-4 shadow-lg px-8 md:px-28 mb-4 ">
-          <div className="h-52 overflow-y-auto bg-transparent p-4 rounded-md text-gray-300">
+          <div className="h-48 overflow-y-auto bg-transparent p-4 rounded-md text-gray-300">
             {loading ? (
               <p>Loading...</p>  // Show loading while waiting for response
             ) : messages.length === 0 ? (

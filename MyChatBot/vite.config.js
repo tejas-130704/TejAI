@@ -7,7 +7,7 @@ export default defineConfig({
     tailwindcss(),
     react()
   ],
-   base: '/MySelf/'
+   base: '/TejAI/'
 })
 
 
