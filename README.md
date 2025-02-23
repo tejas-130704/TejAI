@@ -1,4 +1,4 @@
-#TejAI – Personal AI to Know Everything About Tejas Jadhav
+<h1>TejAI – Personal AI to Know Everything About Tejas Jadhav</h1>
 
 TejAI is a custom-built chatbot designed to answer any questions related to me (Tejas), acting as his virtual AI assistant. Whether you're curious about his projects, achievements, skills, education, or personal interests, TejAI is here to provide accurate and detailed responses.
 
